@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>Parapara</title>
+               <script type="text/javascript" src="js/cordova.js"></script>
+
+        <link rel="stylesheet" href="css/framework7.css">
+        <link rel="stylesheet" href="css/my-app.css">
+        <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="css/fontello.css">
+        <style type="text/css" media="screen">
+            .username{
+                transition:transform 0.5s ease-out;    }
+            .fadename{
+                transform:rorate(360deg);
+            }
+            @keyframes fade-in {
+                0% {
+                    left:-10px;
+                }
+                100% {
+                    left:40px;
+                }
+            }
+            @-webkit-keyframes fade-in {
+                0% {
+                    left:-10px;
+                }
+                100% {
+                    left:40px;
+                }
+            }
+        </style>
+        <script type='application/javascript' src='js/fastclick.js'></script>
+        <script>
+            function showname() {
+                alert('hi');
+                // var d = document.getElementById('name');
+                // d.className = d.className + "fadename";
+            }
+            function openPoverCom() {
+                alert('hi');
+            }
+
+            var share_timeline_id = 0;
+
+            function share_facebook(social)
+            {
+                var user_id = JSON.parse(localStorage.getItem("parapara_user_id"));
+
+                var share_url = base_url + "share/index.php?timeline_id=" + share_timeline_id;
+                var redirect_link = base_url + "back_to_app.php?user_id=" + user_id;
+                var share_message = '5秒の思い出が手のひらでよみがえる';
+
+                if (social == '1')
+                {
+                    window.location.href = 'http://www.facebook.com/sharer/sharer.php?u=' + encodeURI(share_url) + '&t=' + share_message + '&redirect_uri=' + encodeURI(redirect_link);
+
+                } else if (social == '2')
+                {
+                    window.location.href = 'http://twitter.com/share?text=' + share_message + '&url=' + encodeURI(share_url) + '&hashtags=parapara';
+                } else if (social == '3')
+                {
+                    window.location.href = 'http://line.me/R/msg/text/?' + share_message + ' ' + encodeURI(share_url) + '';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Status bar overlay for fullscreen mode-->
+        <div class="statusbar-overlay"></div>
+        <!-- Panels overlay-->
+        <div class="panel-overlay"></div>
+        <!-- Left panel with reveal effect-->
+        <div class="panel panel-left panel-reveal">
+            <div class="content-block-title sidetitle">Parapara</div>
+            <div class="list-block">
+                <ul class="sidelist">
+                    <li><a href="mypage.html" class="close-panel item-link">
+                            <div class="item-content">
+                                <div class="item-media"><i class="icon icon-male"></i></div>
+                                <div class="item-inner">
+                                    <div class="item-title">My Page</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li><a href="account.html" class="close-panel item-link">
+                            <div class="item-content">
+                                <div class="item-media"><i class="icon icon-cog"></i></div>
+                                <div class="item-inner">
+                                    <div class="item-title">Account</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <!--                    <li><a href="upload.html" class="close-panel item-link">
+                                                <div class="item-content">
+                                                    <div class="item-media"><i class="icon icon-cog"></i></div>
+                                                    <div class="item-inner">
+                                                        <div class="item-title">Test</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>-->
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- Views-->
+        <div class="views">
+            <!-- Your main view, should have "view-main" class-->
+            <div class="view view-main">
+                <!-- Top Navbar-->
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left"><a href="#" class="open-panel link icon-only"><i class="icon icon-menu"></i></a></div>
+                        <div class="center sliding">Parapara</div>
+                        <div class="right"><a href="javascript:void(0);" class="link icon-only" onclick="captureVideo();"><i class="icon icon-videocam"></i></a></div>
+                    </div>
+                    <div class="navborder"></div>
+                    <!--
+                                        <div class="loading" style="display:none;" id="parapara_video_upload_text">
+                                            <div class="loading-inner"><img src="img/pre.GIF" style="width:16px;">&nbsp;uploading...</div>
+                                        </div>
+                    -->
+
+                </div>
+                <!--    Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes
+                --> <div class="pages navbar-through">
+                    <!-- Page, data-page contains page name-->
+                    <div data-page="index" class="page">
+                        <!-- Scrollable page content-->
+                        <div class="page-content">
+                            <div data-direction="vertical" data-pagination=".slider-pagination" class="slider-container slider-init ks-demo-slider">
+                                <div class="slider-wrapper"  id="parapara_timeline">
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bottom Toolbar-->
+            </div>
+        </div>
+        <!--*****************************************pop over / popup *******************************************-->
+        <!--share popover -->
+        <div class="popover popover-share" style="width:100px;">
+            <div class="popover-angle"></div>
+            <div class="popover-inner" style="height:auto;">
+                <div class="list-block media-list" style="height:auto;">
+                    <div class="row sharebox">
+                        <a href="#" class="col-100 center number" onclick="share_facebook('1');">
+                            <span><i class="icon icon-facebook-squared shareicon fa"></i></span><br>
+                            <span class="sharelabel fa">Facebook</span>
+                        </a>
+                        <a href="#" class="col-100 center number" onclick="share_facebook('2');"><span><i class="icon icon-twitter-squared shareicon tw"></i></span><br>
+                            <span class="sharelabel tw">Twitter</span>
+                        </a>
+                        <!--                        
+                        <a href="#" class="col-100 center number" onclick="share_facebook('3');"><span class="shareicon"><img src="img/line.png" class="line center"></span><br>
+                                                    <span class="sharelabel li center">Line</span>
+                                                </a>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--comment popup-->
+        <div class="popup comment-popup"  style="background:none;">
+            <div class="view">
+                <div class="pages navbar-through"  style="background:none;">
+                    <div class="navbar ">
+                        <div class="navbar-inner">
+                            <div class="center">Comment</div>
+                            <div class="right"><a class="link close-popup white" id="comback">Back</a></div>
+                        </div>
+                    </div>
+                    <div data-page="messages" class="page no-toolbar toolbar-fixed" style="background:none;">
+                        <div class="toolbar messagebar">
+                            <div class="toolbar-inner" id="parapara_leave_comment">
+                                <textarea placeholder="Message"></textarea><a href="#" class="link com">Send</a>
+                            </div>
+                        </div>
+                        <div class="page-content messages-content" style="background:none;">
+                            <div class="messages messages-auto-layout" id="parapara_comment_popup">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--popover for cool-->
+        <div class="popover popover-cool">
+            <div class="popover-angle"></div>
+            <div class="popover-inner">
+                <div class="list-block media-list" id="parapara_cool_popup">
+                </div>
+            </div>
+        </div>
+
+        <script src="js/jquery-1.11.1.js"></script>
+        <script type="text/javascript" src="js/framework7.min.js"></script>
+        <!--        <script type="text/javascript" src="js/my-app.js"></script>-->
+
+        <script type="text/javascript" src="js/VideoCapturePlus.js"></script>
+
+        <script type="text/javascript" src="js/custom.js"></script>
+        <script type="text/javascript" src="js/jquery.lazyloadxt.min.js"></script>
+        <script type="text/javascript">
+                            $.extend($.lazyLoadXT, {
+                                blankImage: 'http://www.aphroditehills.com/images/mobileLoader.gif'
+                            });
+
+                            var version_string = '';
+                            var version_number = '';
+                            document.addEventListener("deviceready", onDeviceReady, false);
+
+                            function onDeviceReady() {
+
+                                version_string = device.version;
+                                version_number = parseFloat(version_string);
+
+                                console.log('version number: ' + version_number);
+
+                                if (version_number < 4.4)
+                                {
+                                    console.log('version number (Less): ' + version_number);
+                                    $.getScript("js/parapara2.js");
+                                }
+                                else
+                                {
+                                    console.log('version number (High): ' + version_number);
+                                    $.getScript("js/parapara.js");
+                                }
+                            }
+
+        </script>
+        <!--        <script type="text/javascript" src="js/parapara.js"></script>-->
+        <!--        <script type="text/javascript" src="js/parapara2.js"></script>-->
+    </body>
+</html>

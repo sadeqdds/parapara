@@ -1,0 +1,73 @@
+
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left"><a href="#" class="back link"><i class="icon icon-left-big"></i><span class="pink">Back</span></a></div>
+        <div class="center sliding">Account</div>
+    </div>
+</div>
+<div class="pages navbar-through">
+    <!-- Page, data-page contains page name-->
+    <div data-page="account" class="page">
+        <div class="page-content center">
+            <div class="content-block">
+                <div class="row" style="width:100%;">
+                    <img src='img/default.png' class="editthumb" style="margin:0 auto;" id="parapara_account_profile_image"//>
+                </div>
+                <div class="list-block inset">
+                    <ul>
+                        <li>
+                            <div class="item-content account_input">
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="text" placeholder="Your name" id="parapara_account_name"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content account_input">
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="email" placeholder="E-mail" id="parapara_account_email"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li style="display: none;">
+                            <div class="item-content account_input">
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="password" placeholder="Password"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="list-block">
+                        <a href="#" class="item-link button facebook social_connect" style="display: none;">
+                            <i class="icon icon-facebook-squared social_i"></i><span>connect facebook</span>
+                        </a>
+                        <a href="#" class="item-link button twitter social_connect" style="display: none;">
+                            <i class="icon icon-twitter social_i"></i><span>connect twitter</span>
+                        </a>
+                        <a href="#" class="item-link button facebook-done social_connect" style="display: none;" id="parapara_account_fb">
+                            <i class="icon icon-facebook-squared social_i"></i><span>facebook connected</span>
+                        </a>
+                        <a href="#" class="item-link button twitter-done social_connect" style="display: none;" id="parapara_account_tw">
+                            <i class="icon icon-twitter social_i"></i><span>twitter connected</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="content-block">
+                <div class="row center">
+                    <div class="col-20"></div>
+                    <div class="col-60"><a href="#" class="button btn-cool coolactive back">Done</a></div>
+                    <div class="col-20"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

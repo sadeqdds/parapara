@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <title>ParaPara</title>
+
+        <!--        <script type="text/javascript" src="js/cordova.js"></script>-->
+        <link rel="stylesheet" href="css/framework7.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="css/fontello.css">
+
+    </head>
+    <body>
+        <!-- Views-->
+        <div class="views">
+            <div class="view view-main">
+                <div class="pages navbar-through">
+                    <div data-page="index" class="page no-toolbar">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="login-screen modal-in">
+            <div class="view">
+                <div data-page="slider-horizontal" class="page">
+                    <div class="page-content login-screen-content" style="height:100%;overflow:hidden;">
+                        <div style="height:10%;">
+                            <div class="center"><h3 style="color:rgba(226, 106, 106,1);margin-bottom:2px;">Parapara</h3><small style="color:rgba(226, 106, 106,1);">Impress your memories in 5 seconds</small></div>
+                        </div>
+                        <div data-pagination=".slider-pagination" class="slider-container slider-init ks-demo-slider" style="height:55%;">
+                            <div class="slider-pagination"></div>
+                            <div class="slider-wrapper" id="puka1">
+                                <div class="slider-slide"><img src="img/4.png" style="width:100%;" class="guideslide" alt="first_guide"></div>
+                                <div class="slider-slide"><img src="img/5.png" style="width:100%;" class="guideslide" alt="second_guide"></div>
+                                <div class="slider-slide"><img src="img/6.png" style="width:100%;" class="guideslide" alt="third_guide"></div>
+                            </div>
+                        </div>
+                        <div style="height:35%;background:rgba(226, 106, 106,1);padding:4px 0;">
+                            <div class="list-block">
+                                <div class="row center">
+                                    <div class="col-100" style="margin-left: 10%;margin-right: 10%;width: 80%;">
+                                        <a href="#" class="item-link button facebook social_connect close-login-screen" onclick="fb_login();">
+                                            <span><i class="icon-facebook-squared social_i"></i>start with facebook</span>
+                                        </a>
+                                        <a href="#" class="item-link button twitter social_connect close-login-screen" onclick="tw_login();">
+                                            <i class="icon-twitter social_i"></i><span>start with twitter</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-10"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <span class="preloader"></span>
+
+        <script src="js/jquery-1.11.1.js"></script>
+
+        <script src="js/jqfloat.js"></script>
+        <script>
+                                            var base_url = "http://www.parapara.xyz/parapara_server/";
+
+                                            $(document).ready(function () {
+
+
+                                                var user_id = JSON.parse(localStorage.getItem("parapara_user_id"));
+                                                if (user_id != null)
+                                                {
+                                                    window.location.href = "index.html?user_id=" + user_id;
+                                                }
+
+                                                $('#puka1').jqFloat({
+                                                    width: 100,
+                                                    height: 40,
+                                                    speed: 300
+                                                });
+
+                                            });
+
+                                            function fb_login()
+                                            {
+                                                //window.location.href = base_url + "facebook_login/";
+                                                //navigator.app.loadUrl(base_url + "facebook_login/fbconfig.php");
+                                                myApp.showPreloader('Now processing ...');
+                                                window.location.href = base_url + "facebook_login/fbconfig.php";
+                                            }
+
+                                            function tw_login()
+                                            {
+                                                //window.location.href = base_url + "twitter_login/";
+                                                myApp.showPreloader('Now processing ...');
+                                                window.location.href = base_url + "twitter_login/redirect.php";
+                                                //navigator.app.loadUrl(base_url + "twitter_login/redirect.php");
+                                            }
+
+                                            function goto_app()
+                                            {
+                                                var user_id = 2;
+                                                localStorage.setItem("parapara_user_id", JSON.stringify(user_id));
+                                                window.location.href = "index.html?user_id=2";
+                                            }
+        </script>
+
+        <script type="text/javascript" src="js/framework7.js"/></script>
+
+
+    <script>
+
+                                            var myApp = new Framework7();
+
+                                            var $$ = Dom7;
+
+                                            var mainView = myApp.addView('.view-main', {
+                                                dynamicNavbar: true
+                                            });
+                                            $$('.popup-compost').on('click', function () {
+                                                myApp.popup('.popup-compost');
+                                            });
+
+    </script>
+
+</body>
+</html>
