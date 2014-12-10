@@ -1157,7 +1157,7 @@ jQuery(document).on('pageInit', '.page[data-page="profile"]', function (e) {
 
 jQuery(document).on('pageInit', '.page[data-page="upload"]', function (e) {
     //load content in upload page
-    get_upload();
+    //get_upload();
 });
 
 /**
