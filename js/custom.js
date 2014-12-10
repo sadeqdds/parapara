@@ -189,8 +189,8 @@ function get_timeline(user_id)
                             + '</div>'
                             + '<div class="toolbar-inner-left">'
                             + '<a href="profile.html?profile_id=' + value.user_id + '" class="link tab-icon"><span><img src="' + value.profile_image + '" class="usericon"></span></a>'
-                            + '<a href="#" class="tab-link tab-icon"><span data-popover=".popover-cool" class="open-popover status-content"><span id="parapara_count_cool_' + value.id + '">' + value.cool_count + '</span><span class="icon icon-emo-wink" onclick="get_cool_list(' + value.id + ');"></span></span></a>'
-                            + '<a href="#" class="tab-link tab-icon"><span data-popup=".comment-popup" class="open-popup status-content"><span id="parapara_count_comment_' + value.id + '">' + value.comment_count + '</span><span class="icon icon-comment-3" onclick="get_comment_list(' + value.id + ');"></span></span></a>'
+                            + '<a href="#" class="tab-link tab-icon"><span class="status-content"><span id="parapara_count_cool_' + value.id + '">' + value.cool_count + '</span><span data-popover=".popover-cool" class="open-popover icon icon-emo-wink" onclick="get_cool_list(' + value.id + ');"></span></span></a>'
+                            + '<a href="#" class="tab-link tab-icon"><span class="status-content"><span id="parapara_count_comment_' + value.id + '">' + value.comment_count + '</span><span data-popup=".comment-popup" class="open-popup icon icon-comment-3" onclick="get_comment_list(' + value.id + ');"></span></span></a>'
                             + '</div>'
                             + '</div>'
                             + '</div>';
@@ -310,8 +310,8 @@ function get_next_timeline(slider)
                         + '</div>'
                         + '<div class="toolbar-inner-left">'
                         + '<a href="profile.html?profile_id=' + value.user_id + '" class="link tab-icon"><span><img src="' + value.profile_image + '" class="usericon"></span></a>'
-                        + '<a href="#" class="tab-link tab-icon"><span data-popover=".popover-cool" class="open-popover status-content"><span id="parapara_count_cool_' + value.id + '">' + value.cool_count + '</span><span class="icon icon-emo-wink" onclick="get_cool_list(' + value.id + ');"></span></span></a>'
-                        + '<a href="#" class="tab-link tab-icon"><span data-popup=".comment-popup" class="open-popup status-content"><span id="parapara_count_comment_' + value.id + '">' + value.comment_count + '</span><span class="icon icon-comment-3" onclick="get_comment_list(' + value.id + ');"></span></span></a>'
+                        + '<a href="#" class="tab-link tab-icon"><span class="status-content"><span id="parapara_count_cool_' + value.id + '">' + value.cool_count + '</span><span data-popover=".popover-cool" class="open-popover icon icon-emo-wink" onclick="get_cool_list(' + value.id + ');"></span></span></a>'
+                        + '<a href="#" class="tab-link tab-icon"><span class="status-content"><span id="parapara_count_comment_' + value.id + '">' + value.comment_count + '</span><span data-popup=".comment-popup" class="open-popup icon icon-comment-3" onclick="get_comment_list(' + value.id + ');"></span></span></a>'
                         + '</div>'
                         + '</div>'
                         + '</div>';
@@ -443,8 +443,8 @@ function get_each(timeline_id)
                             + '</div>'
                             + '<div class="toolbar-inner-left">'
                             + '<a href="profile.html?profile_id=' + value.user_id + '" class="link tab-icon"><span><img src="' + value.profile_image + '" class="usericon"></span></a>'
-                            + '<a href="#" class="tab-link tab-icon"><span data-popover=".popover-cool" class="open-popover status-content"><span id="parapara_count_cool_' + value.id + '">' + value.cool_count + '</span><span class="icon icon-emo-wink" onclick="get_cool_list(' + value.id + ');"></span></span></a>'
-                            + '<a href="#" class="tab-link tab-icon"><span data-popup=".comment-popup" class="open-popup status-content"><span id="parapara_count_comment_' + value.id + '">' + value.comment_count + '</span><span class="icon icon-comment-3" onclick="get_comment_list(' + value.id + ');"></span></span></a>'
+                            + '<a href="#" class="tab-link tab-icon"><span class="status-content"><span id="parapara_count_cool_' + value.id + '">' + value.cool_count + '</span><span data-popover=".popover-cool" class="open-popover icon icon-emo-wink" onclick="get_cool_list(' + value.id + ');"></span></span></a>'
+                            + '<a href="#" class="tab-link tab-icon"><span class="status-content"><span id="parapara_count_comment_' + value.id + '">' + value.comment_count + '</span><span data-popup=".comment-popup" class="open-popup icon icon-comment-3" onclick="get_comment_list(' + value.id + ');"></span></span></a>'
                             + '</div>'
                             + '</div>'
                             + '</div>';
@@ -938,8 +938,8 @@ function get_profile_next_timeline(slider)
                         + '</div>'
                         + '<div class="toolbar-inner-left">'
                         + '<a href="profile.html?profile_id=' + value.user_id + '" class="link tab-icon"><span><img src="' + value.profile_image + '" class="usericon"></span></a>'
-                        + '<a href="#" class="tab-link tab-icon"><span data-popover=".popover-cool" class="open-popover status-content"><span id="parapara_count_cool_' + value.id + '">' + value.cool_count + '</span><span class="icon icon-emo-wink" onclick="get_cool_list(' + value.id + ');"></span></span></a>'
-                        + '<a href="#" class="tab-link tab-icon"><span data-popup=".comment-popup" class="open-popup status-content"><span id="parapara_count_comment_' + value.id + '">' + value.comment_count + '</span><span class="icon icon-comment-3" onclick="get_comment_list(' + value.id + ');"></span></span></a>'
+                        + '<a href="#" class="tab-link tab-icon"><span class="status-content"><span id="parapara_count_cool_' + value.id + '">' + value.cool_count + '</span><span data-popover=".popover-cool" class="open-popover icon icon-emo-wink" onclick="get_cool_list(' + value.id + ');"></span></span></a>'
+                        + '<a href="#" class="tab-link tab-icon"><span class="status-content"><span id="parapara_count_comment_' + value.id + '">' + value.comment_count + '</span><span data-popup=".comment-popup" class="open-popup icon icon-comment-3" onclick="get_comment_list(' + value.id + ');"></span></span></a>'
                         + '</div>'
                         + '</div>'
                         + '</div>';
